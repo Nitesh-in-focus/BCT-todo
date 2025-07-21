@@ -100,8 +100,8 @@ You can copy and paste this directly into your README.md file!
 
 _Add screenshots of your app UI here. For example:_
 
-![Login Page](screenshots/login-page.png)
-![Todos Dashboard](screenshots/todos-dashboard.png)
+![Login Page](/login-page.png)
+![Todos Dashboard](/todos-dashboard.png)
 
 ---
 
