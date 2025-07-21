@@ -1,0 +1,140 @@
+/* --- Google Font Import --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap");
+
+/* --- Main Variables --- */
+:root {
+  --brand-red: #f84533;
+  --dark-bg: #1a1a1a;
+  --white: #ffffff;
+  --card-bg: rgba(0, 0, 0, 0.2);
+  --border-color: rgba(255, 255, 255, 0.4);
+  --text-light: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+/* * Apply this to the body if you haven't already.
+ */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/*
+* ===============================================
+* CONTACT PAGE STYLES
+* ===============================================
+*/
+
+.contact-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: var(--brand-red);
+  padding: 3rem 4rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-container h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* --- Form Styling --- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Symmetrical gap between form groups */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--white);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+button[type="submit"] {
+  background-color: var(--white);
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-top: 1rem; /* Add space above the button */
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  background-color: #f0f0f0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 2rem;
+  }
+  .contact-container h1 {
+    font-size: 2rem;
+  }
+}

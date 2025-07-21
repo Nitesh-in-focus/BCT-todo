@@ -1,0 +1,159 @@
+/* --- Google Font Import --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap");
+
+/* --- Main Variables --- */
+:root {
+  --brand-red: #f84533;
+  --dark-bg: #1a1a1a;
+  --white: #ffffff;
+  --card-bg: rgba(0, 0, 0, 0.2);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-light: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+/* --- General Body Styles --- */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  /* This is the key change to vertically center the container */
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* --- Main Container Styling --- */
+/* Apply this class to the main div wrapping your content */
+.home-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--brand-red);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers children horizontally */
+  text-align: center; /* Centers text inside the container */
+  gap: 2rem; /* Adds space between elements */
+  position: relative; /* Allows for absolute positioning */
+  z-index: 1; /* Ensures the container is above other content */
+  background-color: var(--dark-bg); /* Matches the dark background */
+  color: var(--white); /* Ensures text is visible */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  padding: 2rem 3rem; /* Adjusted padding for better spacing */
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin: 0 0 1rem 0;
+  max-width: 800px; /* Limits the width of the heading */
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* --- Primary Button --- */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--brand-red);
+  font-weight: 700;
+  padding: 14px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly lighter on hover */
+  color: var(--brand-red); /* Slightly darker on hover */
+  text-decoration: none; /* Removes underline on hover */
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+  background-color 0.2s ease, color 0.2s ease;
+}
+
+/*
+ * ===============================================
+ * SYMMETRY FIX: This is the most important part
+ * ===============================================
+ */
+.features {
+  /* 1. Use CSS Grid for the container */
+  display: grid;
+
+  /* 2. Create 3 equal-width columns. `1fr` means "1 fraction of the available space" */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* 3. Add a symmetrical 2rem gap between the grid items (the cards) */
+  gap: 2rem;
+
+  /* 4. Add padding around the entire features section */
+  padding: 0 4rem 4rem 4rem;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* 5. Center the text (h3 and p) inside each card */
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Responsive Design for Smaller Screens --- */
+@media (max-width: 900px) {
+  .features {
+    /* On smaller screens, stack the cards into a single column */
+    grid-template-columns: 1fr;
+    padding: 0 2rem 2rem 2rem;
+  }
+}

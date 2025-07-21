@@ -1,0 +1,16 @@
+<app-navbar/>
+<div class="auth-container">
+    <h1>Login</h1>
+    <form (ngSubmit)="onSubmit()">
+        <input type="email" placeholder="Email" [(ngModel)]="u.email" name="email" required/>
+        <input type="password" placeholder="Password" [(ngModel)]="u.password" name="password" required/>
+       <button type="submit" >Login</button>
+        </form>
+        <p *ngIf="error">{{ error }}</p>
+        
+        <p>Don't have an account?
+            <a routerLink="/register">Register Here</a>
+        </p>
+</div>
+<app-footer/>
+<router-outlet/>

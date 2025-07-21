@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <h2 class="text-center">My Todo List</h2>
+
+  <!-- Add New Task -->
+  <div class="input-group mb-3">
+    <input
+      [(ngModel)]="newTask"
+      class="form-control"
+      placeholder="Add new task"
+    />
+    <button (click)="addTask()" class="btn btn-primary">Add</button>
+  </div>
+
+  <!-- Task List -->
+  <ul class="list-group">
+    <li
+      *ngFor="let task of tasks; let i = index"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <!-- Conditional Editing -->
+      <div *ngIf="!task.editing">
+        <span [ngClass]="{ 'text-decoration-line-through': task.done }">{{
+          task.name
+        }}</span>
+      </div>
+      <div *ngIf="task.editing">
+        <input [(ngModel)]="task.name" class="form-control" />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="btn-group btn-group-sm">
+        <button
+          *ngIf="!task.done && !task.editing"
+          (click)="editTask(i)"
+          class="btn btn-warning"
+        >
+          Edit
+        </button>
+        <button
+          *ngIf="task.editing"
+          (click)="saveTask(i)"
+          class="btn btn-success"
+        >
+          Save
+        </button>
+        <button
+          *ngIf="!task.done"
+          (click)="markDone(i)"
+          class="btn btn-success"
+        >
+          Done
+        </button>
+        <button
+          *ngIf="task.done"
+          (click)="undoTask(i)"
+          class="btn btn-secondary"
+        >
+          Undo
+        </button>
+        <button (click)="deleteTask(i)" class="btn btn-danger">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
+

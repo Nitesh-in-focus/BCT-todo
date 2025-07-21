@@ -1,0 +1,165 @@
+/* --- Main Variables --- */
+:root {
+  --brand-red: #f84533;
+  --dark-bg: #1a1a1a;
+  --white: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.2);
+  --text-light: rgba(255, 255, 255, 0.8);
+}
+
+/* * Apply this to the body if you haven't already.
+ * It sets up the background and font for the whole page.
+ */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-bg);
+  margin: 0;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box; 
+
+}
+
+/*
+* ===============================================
+* NAVBAR STYLES
+* ===============================================
+*/
+
+/* * This is the main navbar container. 
+ * In your HTML, it's the <nav> element.
+ */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Pushes brand to left and nav items to right */
+  align-items: center;
+  padding: 1.5rem 3rem; /* Symmetrical padding */
+  /* Assumes the navbar is inside the main red container */
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--brand-red);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px; /* Optional: limits the width of the navbar */
+  margin: 0 auto; /* Centers the navbar */
+  box-sizing: border-box;
+  border-radius: 0 0 24px 24px; /* Rounded corners at the bottom */
+  position: relative; /* Allows for absolute positioning of child elements */
+  z-index: 1000; /* Ensures the navbar is above other content */
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 1.5rem; /* Adds space between brand and nav items */
+  background-color: var(--dark-bg); /* Matches the dark background */
+  color: var(--white); /* Ensures text is visible */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  padding: 1.5rem 2rem; /* Adjusted padding for better spacing */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  border-bottom: 2px solid var(--border-color); /* More visible border */
+  border-radius: 0 0 24px 24px; /* Rounded corners at the bottom */
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect for a glassmorphism look */
+  position: sticky; /* Makes the navbar stick to the top on scroll */
+  top: 0; /* Sticks to the top of the viewport */
+  left: 0; /* Sticks to the left of the viewport */
+  right: 0;
+}
+
+/* * Use this class for your logo or site title.
+ * e.g., <a class="navbar-brand">PORTAL</a>
+ */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.navbar-brand:hover {
+  color: black;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  text-decoration: none;
+}
+
+/* * This is the container for your navigation links (the <ul> element).
+ */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* Symmetrical gap between nav items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1; /* Allows the nav items to take available space */
+  justify-content: flex-end; /* Aligns nav items to the right */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* * This class applies to each link (the <a> tags).
+ */
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  padding: 0.5rem 1rem; /* Adds padding for better click area */
+  border-radius: 12px; /* Rounded corners for links */
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block; /* Ensures padding works correctly */
+  position: relative; /* Allows for pseudo-element positioning */
+  z-index: 1; /* Ensures the link is above the background */
+  background-color: transparent; /* Default background */
+  box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0); /* Initial box shadow for animation */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+  color: var(--white);
+  transition: color 0.2s ease;
+
+}
+
+.nav-link:hover,
+.nav-link.active {
+  /* Style for the active page link */
+  color: blue;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+  box-shadow: inset 0 0 0 2px var(--white); /*
+  Adds a white border on hover */
+  text-decoration: none; /* Removes underline on hover */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  transition: transform 0.2s ease;
+}
+
+/* * Hides the default Bootstrap mobile menu button.
+ * You would need custom JS to create a new one.
+ */
+.navbar-toggler {
+  display: none;
+}
+
+/* --- Responsive Design for Navbar --- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
